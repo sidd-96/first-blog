@@ -2,21 +2,16 @@
     <head>
         <title>Django Boys blog</title>
     </head>
-    <body>
-        <div>
+    <div>
             <h1><a href="/">Django Boys Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-              <p>I love scrambled eggs.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>The point of view has began to change pretty frequently right now</p>
-        </div>
+    <body>
+      {% for post in posts %}
+      <div>
+      <p> published: {{post.published_date}} </p>
+      <h1><a href="">{{post.titles}}</a></h1>
+      <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+        {% endfor %}
     </body>
 </html>
